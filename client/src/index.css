@@ -1,2 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark;
+}
+
+@theme {
+    --color-text-white: #fdf7fa;
+    --color-bg-black: #121212;
+    --color-primary-sakura: #F5BABB;
+    --color-secondary-matcha: #5aa89c;
+    --color-secondary-matcha-dark: #2C6D63;
+    --color-accent-rose: #f3dfe0;
+    --font-heading: 'Noto Sans JP', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
