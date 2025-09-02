@@ -1,3 +1,5 @@
-import { app, port } from "./config/app";
+import { app, port } from "./config/app.js";
 
-app.listen(port);
+app.listen(port, () => {
+  console.log("Server works!");
+});

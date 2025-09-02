@@ -50,7 +50,7 @@ export default function Navbar() {
              hover:brightness-110 hover:shadow-[0_0_25px_rgba(34,197,94,0.8)] 
              transition-all duration-500 ease-in-out"
         >
-          <NavLink to="/login">Get started</NavLink>
+          <NavLink to="/signup">Get started</NavLink>
         </button>
       </div>
     </nav>

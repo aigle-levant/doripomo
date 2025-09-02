@@ -1,4 +1,4 @@
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 
 export async function handleSignup(uid: string, email: string, name: string) {
   let user = await User.findOne({ uid });

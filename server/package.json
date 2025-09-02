@@ -90,7 +90,6 @@
     "statuses": "^2.0.2",
     "toidentifier": "^1.0.1",
     "type-is": "^2.0.1",
-    "typescript": "^5.9.2",
     "uid2": "^0.0.4",
     "unpipe": "^1.0.0",
     "utils-merge": "^1.0.1",
@@ -106,10 +105,14 @@
     "@types/passport-jwt": "^4.0.1",
     "@types/passport-local": "^1.0.38",
     "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx nodemon --watch \"*.ts\" --exec node --loader ts-node/esm index.ts",
+    "build": "tsc",
+    "prod": "node dist/index.js"
   },
   "keywords": [],
   "author": "",

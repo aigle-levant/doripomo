@@ -1,7 +1,7 @@
 // to handle req.user not functioning due to express
-import { AuthRequest } from "../middleware/auth.middleware";
+import { AuthRequest } from "../middleware/auth.middleware.js";
 import { Request, Response } from "express";
-import { handleSignup } from "../services/auth.services";
+import { handleSignup } from "../services/auth.services.js";
 
 // sign up
 export async function signup(req: AuthRequest, res: Response) {
