@@ -6,11 +6,11 @@
 }
 
 @theme {
-    --color-text-white: #fdf7fa;
-    --color-bg-black: #121212;
+    --color-pale: #fdf7fa;
+    --color-night: #121212;
     --color-primary-sakura: #F5BABB;
     --color-secondary-matcha: #5aa89c;
-    --color-secondary-matcha-dark: #2C6D63;
+    --color-secondary-forest: #2C6D63;
     --color-accent-rose: #f3dfe0;
     --font-heading: 'Noto Sans JP', sans-serif;
     --font-body: 'Inter', sans-serif;
