@@ -1,4 +1,4 @@
-import handleSignup from "../../utils/handleSignup";
+import { firebaseSignup } from "../../utils/handleAuth";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Email from "../../assets/svg/Email";
@@ -8,11 +8,11 @@ export default function SignupForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+  async function signup(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = { email, password };
     try {
-      await handleSignup(data);
+      await firebaseSignup({ email, password });
       alert("Signed up!");
       navigate("/login");
     } catch (err: unknown) {
@@ -23,7 +23,7 @@ export default function SignupForm() {
   }
   return (
     <div id="sign-up-wrapper">
-      <form onSubmit={onSubmit} className="flex flex-col gap-2">
+      <form onSubmit={signup} className="flex flex-col gap-2">
         <label className="input validator">
           <Email />
           <input

@@ -1,4 +1,4 @@
-import { auth } from "../config/firebase";
+import { auth } from "../config/firebase.js";
 import { Request, Response, NextFunction } from "express";
 
 export interface AuthRequest extends Request {
@@ -10,18 +10,18 @@ export async function authenticateToken(
   res: Response,
   next: NextFunction
 ) {
-  // get auth header
-  const header = req.headers.authorization;
-  // if no header exists
-  if (!header || !header.startsWith("Bearer ")) {
-    return res
-      .status(401)
-      .json({ message: "Unauthorized. No token provided." });
-  }
-  //   get token from header
-  const token = header.split("Bearer ")[1];
-  //   verify the token
   try {
+    // get auth header
+    const header = req.headers.authorization;
+    // if no header exists
+    if (!header || !header.startsWith("Bearer ")) {
+      return res
+        .status(401)
+        .json({ message: "Unauthorized. No token provided." });
+    }
+    //   get token from header
+    const token = header.split(" ")[1];
+    //   verify the token
     const decode = await auth.verifyIdToken(token);
     req.user = decode;
     next();

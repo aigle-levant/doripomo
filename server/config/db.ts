@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { connectionString } from "./mongo";
+import { connectionString } from "./mongo.js";
 
-export async function connectDb() {
+export default async function connectDb() {
   try {
     await mongoose.connect(connectionString);
     console.log("Database connected.");

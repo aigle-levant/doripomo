@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 type AuthState = {
-  user: { email: string; uid: string } | null;
+  user: { email: string; uid: string; backendUser?: unknown } | null;
   setUser: (user: AuthState["user"]) => void;
 };
 

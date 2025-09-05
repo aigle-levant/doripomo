@@ -1,53 +1,48 @@
 import { useState } from "react";
-import handleLogin from "../../utils/handleLogin";
+import { firebaseLogin } from "../../utils/handleAuth";
 import { authStore } from "../../store/authStore";
 import Email from "../../assets/svg/Email";
 import Password from "../../assets/svg/Password";
 
 export default function LoginForm() {
   const setUser = authStore((state) => state.setUser);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function onSubmit() {
-    console.log("Submitting...");
-
+  async function login(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     try {
-      const { firebaseUser, backendUser } = await handleLogin({
+      const { user } = await firebaseLogin({
         email,
         password,
       });
-      console.log("Handle login, success.");
-
       setUser({
-        uid: firebaseUser.uid,
-        email: firebaseUser.email,
-        ...backendUser,
+        uid: user.uid,
+        email: user.email ?? "",
       });
       console.log(
         "User is logged in, now go and make the damn syllabus route!"
       );
     } catch (err: unknown) {
-      const message =
-        err instanceof Error ? err.message : "An unexpected error occurred";
+      const message = err instanceof Error ? err.message : err;
       alert(message);
     }
   }
-
   return (
     <div id="login-wrapper">
-      <form onSubmit={onSubmit} className="flex flex-col gap-2">
+      <form onSubmit={login} className="flex flex-col gap-2">
         <label className="input validator">
           <Email />
           <input
             type="email"
             placeholder="Email"
+            name="email"
+            autoComplete="on"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             maxLength={320}
-            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            pattern="[\-a-zA-Z0-9~!$%^&amp;*_=+\}\{'?]+(\.[\-a-zA-Z0-9~!$%^&amp;*_=+\}\{'?]+)*@[a-zA-Z0-9_][\-a-zA-Z0-9_]*(\.[\-a-zA-Z0-9_]+)*\.[cC][oO][mM](:[0-9]{1,5})?"
             title="Enter a valid email address"
           />
         </label>
@@ -56,6 +51,8 @@ export default function LoginForm() {
           <Password />
           <input
             type="password"
+            name="password"
+            autoComplete="on"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
