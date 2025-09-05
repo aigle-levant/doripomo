@@ -11,7 +11,7 @@ export default async function handleLogin({
 }) {
   const userDetails = await signInWithEmailAndPassword(auth, email, password);
   const token = await userDetails.user.getIdToken();
-  const res = await axios.get("http://localhost:4000/api/auth/login", {
+  const res = await axios.get("https://localhost:4000/api/auth/login", {
     headers: { Authorization: `Bearer ${token}` },
   });
   return {

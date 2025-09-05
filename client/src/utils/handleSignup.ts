@@ -30,5 +30,8 @@ export default async function handleSignup({
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   );
-  return true;
+  return {
+    firebaseUser: userDetails.user,
+    token,
+  };
 }
