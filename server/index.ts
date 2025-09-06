@@ -18,10 +18,14 @@ app.use(express.json());
 // routes
 app.use("/api/auth", limiter, authRouter);
 
+const serverPort = port || 4000;
+
 async function startServer() {
   try {
     await connectDb();
-    app.listen(port, () => console.log(`Server running on port ${port}`));
+    app.listen(serverPort, () =>
+      console.log(`Server running on port ${serverPort}`)
+    );
   } catch (err) {
     console.error("Server startup failed:", err);
   }
