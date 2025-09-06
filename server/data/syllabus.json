@@ -1,1 +1,151 @@
-{}
+{
+  "syllabi": [
+    {
+      "title": "Front-end Development",
+      "chapters": [
+        {
+          "title": "HTML & CSS",
+          "tasks": [
+            { "title": "HTML Basics" },
+            { "title": "HTML Semantic Tags" },
+            { "title": "Forms & Inputs" },
+            { "title": "Tables & Lists" },
+            { "title": "CSS Basics" },
+            { "title": "Selectors & Specificity" },
+            { "title": "Box Model" },
+            { "title": "Flexbox" },
+            { "title": "CSS Grid" },
+            { "title": "Media Queries" },
+            { "title": "Responsive Design" },
+            { "title": "CSS Variables & Custom Properties" },
+            { "title": "Transitions & Animations" }
+          ]
+        },
+        {
+          "title": "JavaScript",
+          "tasks": [
+            { "title": "Variables & Data Types" },
+            { "title": "Operators & Expressions" },
+            { "title": "Conditionals & Loops" },
+            { "title": "Functions & Scope" },
+            { "title": "Closures & Hoisting" },
+            { "title": "Arrays & Objects" },
+            { "title": "DOM Manipulation" },
+            { "title": "Event Handling" },
+            { "title": "ES6 Features" },
+            { "title": "Modules & Imports/Exports" },
+            { "title": "Asynchronous JS" },
+            { "title": "Fetch API & AJAX" }
+          ]
+        },
+        {
+          "title": "Frameworks & Tools",
+          "tasks": [
+            { "title": "React Basics" },
+            { "title": "JSX & Components" },
+            { "title": "Props & State" },
+            { "title": "Hooks (useState, useEffect)" },
+            { "title": "Routing (React Router)" },
+            { "title": "Context API" },
+            { "title": "Redux Basics" },
+            { "title": "Build Tools (Vite, Webpack)" },
+            { "title": "Version Control (Git & GitHub)" },
+            { "title": "Testing (Jest, React Testing Library)" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Back-end Development",
+      "chapters": [
+        {
+          "title": "Node.js & Express",
+          "tasks": [
+            { "title": "Node.js Basics" },
+            { "title": "Event Loop & Async Programming" },
+            { "title": "Modules & npm Packages" },
+            { "title": "Express Framework" },
+            { "title": "Routing & Middleware" },
+            { "title": "Request & Response Handling" },
+            { "title": "Error Handling" },
+            { "title": "RESTful API Design" },
+            { "title": "Authentication (JWT, Sessions)" },
+            { "title": "Authorization" },
+            { "title": "Security Best Practices" }
+          ]
+        },
+        {
+          "title": "Databases",
+          "tasks": [
+            { "title": "MongoDB Basics" },
+            { "title": "CRUD Operations" },
+            { "title": "Mongoose Schemas & Models" },
+            { "title": "Validation & Middleware" },
+            { "title": "Referencing & Embedding Data" },
+            { "title": "Aggregation Pipeline" },
+            { "title": "Indexes & Performance" },
+            { "title": "Pagination & Filtering" }
+          ]
+        },
+        {
+          "title": "Deployment & Tools",
+          "tasks": [
+            { "title": "Environment Variables" },
+            { "title": "Version Control & CI/CD" },
+            { "title": "Hosting & Cloud (Render, Vercel, Heroku)" },
+            { "title": "Monitoring & Logging (Winston, Morgan)" },
+            { "title": "Error Tracking & Debugging" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SSC CGL",
+      "chapters": [
+        {
+          "title": "Quantitative Aptitude",
+          "tasks": [
+            { "title": "Percentages" },
+            { "title": "Profit & Loss" },
+            { "title": "Simple & Compound Interest" },
+            { "title": "Ratio & Proportion" },
+            { "title": "Averages" },
+            { "title": "Time & Work" },
+            { "title": "Time, Speed & Distance" },
+            { "title": "Algebra Basics" },
+            { "title": "Linear & Quadratic Equations" },
+            { "title": "Inequalities" },
+            { "title": "Geometry & Mensuration" },
+            { "title": "Data Interpretation" }
+          ]
+        },
+        {
+          "title": "General Awareness",
+          "tasks": [
+            { "title": "Indian History" },
+            { "title": "World History" },
+            { "title": "Geography" },
+            { "title": "Polity & Constitution" },
+            { "title": "Current Affairs" },
+            { "title": "Economy & Budget" },
+            { "title": "Science & Technology" },
+            { "title": "Awards & Sports" }
+          ]
+        },
+        {
+          "title": "Reasoning & Mental Ability",
+          "tasks": [
+            { "title": "Logical Reasoning" },
+            { "title": "Analytical Reasoning" },
+            { "title": "Coding-Decoding" },
+            { "title": "Series & Patterns" },
+            { "title": "Seating Arrangement" },
+            { "title": "Blood Relations" },
+            { "title": "Directions & Distances" },
+            { "title": "Problem Solving" }
+          ]
+        }
+      ]
+    }
+  ]
+}

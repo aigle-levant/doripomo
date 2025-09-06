@@ -4,6 +4,7 @@ import { limiter } from "./utils/rateLimit.js";
 import express from "express";
 import cors from "cors";
 import { authRouter } from "./routes/auth.routes.js";
+import { syllabusRouter } from "./routes/syllabus.routes.js";
 import helmet from "helmet";
 
 // env variables
@@ -16,6 +17,7 @@ app.use(express.json());
 
 // routes
 app.use("/api/auth", limiter, authRouter);
+app.use("/api/syllabus", syllabusRouter);
 
 const port = process.env.PORT || 4000;
 

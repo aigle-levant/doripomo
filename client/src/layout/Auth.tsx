@@ -25,7 +25,7 @@ export default function Auth() {
       <div id="auth-layout" className="w-full h-screen">
         <div id="auth-bg-wrapper">
           <img
-            src="../../public/auth-bg.jpg"
+            src="../assets/auth-bg.jpg"
             alt="Photo by Masaaki Komori on Unsplash. White sakura blossoms."
             className="w-full h-screen object-cover opacity-75"
           />
