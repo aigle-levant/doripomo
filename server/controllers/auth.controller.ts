@@ -9,6 +9,10 @@ export async function signup(req: AuthRequest, res: Response) {
   try {
     const uid = req.user?.uid;
     const email = req.user?.email ?? null;
+    // kick out bots
+    if (req.body.fax_only) {
+      return res.status(400).json({ message: "BOOOO! Spam." });
+    }
     if (!uid || !email) {
       return res.status(401).json({ message: "Unauthorized. No user info." });
     }
@@ -23,6 +27,10 @@ export async function signup(req: AuthRequest, res: Response) {
 export async function profile(req: AuthRequest, res: Response) {
   try {
     const uid = req.user?.uid;
+    // kick out bots
+    if (req.body.fax_only) {
+      return res.status(400).json({ message: "BOOOO! Spam." });
+    }
     // unauthorized person - get out!
     if (!uid) {
       return res.status(401).json({ message: "Unauthorized." });

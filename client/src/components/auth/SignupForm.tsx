@@ -3,10 +3,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Email from "../../assets/svg/Email";
 import Password from "../../assets/svg/Password";
+// TODO: Implement recaptcha
+// import ReCAPTCHA from "react-google-recaptcha";
 
 export default function SignupForm() {
   // trap shitty bots and make internet better
   const [showHoneypot, setShowHoneypot] = useState(false);
+  // v3 recaptcha
+  // const [recaptchaToken, setRecaptchaToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
