@@ -5,7 +5,6 @@ import express from "express";
 import cors from "cors";
 import { authRouter } from "./routes/auth.routes.js";
 import helmet from "helmet";
-import { port } from "./config/config.js";
 
 // env variables
 
@@ -18,14 +17,12 @@ app.use(express.json());
 // routes
 app.use("/api/auth", limiter, authRouter);
 
-const serverPort = port || 4000;
+const port = process.env.PORT || 4000;
 
 async function startServer() {
   try {
     await connectDb();
-    app.listen(serverPort, () =>
-      console.log(`Server running on port ${serverPort}`)
-    );
+    app.listen(port, () => console.log(`Server running on port ${port}`));
   } catch (err) {
     console.error("Server startup failed:", err);
   }
