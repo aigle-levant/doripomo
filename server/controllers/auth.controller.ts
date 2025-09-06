@@ -1,6 +1,6 @@
 // to handle req.user not functioning due to express
-import { AuthRequest } from "../middleware/auth.middleware.js";
-import { Response } from "express";
+import { type AuthRequest } from "../middleware/auth.middleware.js";
+import { type Response } from "express";
 import { handleSignup } from "../services/auth.services.js";
 import { User } from "../models/user.model.js";
 
@@ -8,7 +8,7 @@ import { User } from "../models/user.model.js";
 export async function signup(req: AuthRequest, res: Response) {
   try {
     const uid = req.user?.uid;
-    const email = req.user?.email;
+    const email = req.user?.email ?? null;
     if (!uid || !email) {
       return res.status(401).json({ message: "Unauthorized. No user info." });
     }

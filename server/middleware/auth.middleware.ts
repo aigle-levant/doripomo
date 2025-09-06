@@ -1,5 +1,5 @@
 import { auth } from "../config/firebase.js";
-import { Request, Response, NextFunction } from "express";
+import { type Request, type Response, type NextFunction } from "express";
 
 export interface AuthRequest extends Request {
   user?: any;
@@ -19,8 +19,10 @@ export async function authenticateToken(
         .status(401)
         .json({ message: "Unauthorized. No token provided." });
     }
+
     //   get token from header
-    const token = header.split(" ")[1];
+    const token = header.split(" ")[1] || "";
+
     //   verify the token
     const decode = await auth.verifyIdToken(token);
     req.user = decode;

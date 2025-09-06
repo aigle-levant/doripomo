@@ -1,11 +1,22 @@
-import dotenv from "dotenv";
-dotenv.config({ path: "./.env" });
-import { app, port } from "./config/app.js";
+import "dotenv/config";
 import connectDb from "./config/db.js";
+import { limiter } from "./utils/rateLimit.js";
+import express from "express";
+import cors from "cors";
+import { authRouter } from "./routes/auth.routes.js";
+import helmet from "helmet";
+import { port } from "./config/config.js";
 
-if (!process.env.MONGO_CONNECTION_STRING) {
-  throw new Error("MONGO_CONNECTION_STRING is missing in .env");
-}
+// env variables
+
+const app = express();
+
+app.use(cors());
+app.use(helmet());
+app.use(express.json());
+
+// routes
+app.use("/api/auth", limiter, authRouter);
 
 async function startServer() {
   try {

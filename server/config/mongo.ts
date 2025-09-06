@@ -1,15 +1,8 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
+import { mongoConnectionString } from "./config.js";
 
-// get env variables
-const username = process.env.MONGO_USER;
-const password = process.env.MONGO_PASSWORD;
-if (!username || !password) {
-  throw new Error("MONGO_USER or MONGO_PASSWORD is missing in .env");
-}
-
-export const connectionString = `mongodb+srv://${username}:${password}@doripomo.nfdu5jb.mongodb.net/?retryWrites=true&w=majority&appName=doripomo`;
-
-export const client = new MongoClient(connectionString, {
+export const connect = mongoConnectionString || "";
+export const client = new MongoClient(connect, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,

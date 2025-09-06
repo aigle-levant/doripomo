@@ -6,5 +6,5 @@ export const authRouter = Router();
 
 // default route -> /api/auth
 // signup
-authRouter.post("/signup", signup);
+authRouter.post("/signup", authenticateToken, signup);
 authRouter.get("/profile", authenticateToken, profile);
