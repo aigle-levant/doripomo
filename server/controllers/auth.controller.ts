@@ -10,8 +10,8 @@ export async function signup(req: AuthRequest, res: Response) {
     const uid = req.user?.uid;
     const email = req.user?.email ?? null;
     // kick out bots
-    if (req.body.fax_only) {
-      return res.status(400).json({ message: "BOOOO! Spam." });
+    if (req.body.a_password) {
+      return res.status(400).json({ message: "BOOOO! Spam detected." });
     }
     if (!uid || !email) {
       return res.status(401).json({ message: "Unauthorized. No user info." });
@@ -27,10 +27,6 @@ export async function signup(req: AuthRequest, res: Response) {
 export async function profile(req: AuthRequest, res: Response) {
   try {
     const uid = req.user?.uid;
-    // kick out bots
-    if (req.body.fax_only) {
-      return res.status(400).json({ message: "BOOOO! Spam." });
-    }
     // unauthorized person - get out!
     if (!uid) {
       return res.status(401).json({ message: "Unauthorized." });
@@ -38,10 +34,11 @@ export async function profile(req: AuthRequest, res: Response) {
     const user = await User.findOne({ uid });
     // deal with non-existent user
     if (!user) {
-      return res.status(400).json({ message: "User not found." });
+      return res.status(404).json({ message: "User not found." });
     }
     return res.json(user);
   } catch (err) {
-    return res.status(500).json({ message: "Server unexpectedly failed..." });
+    console.error("Profile error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 }

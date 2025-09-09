@@ -1,4 +1,3 @@
-import { SyllabusModel } from "../models/syllabus.model.js";
 import { type Response, type Request } from "express";
 import {
   getAllSyllabus,

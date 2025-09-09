@@ -14,6 +14,8 @@ import Default from "./layout/Default";
 import Auth from "./layout/Auth";
 import Pomodoro from "./layout/Pomodoro";
 import WithUser from "./layout/WithUser";
+// protected routes
+import Protected from "./pages/Protected";
 // libraries
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -37,11 +39,46 @@ export default function App() {
         </Route>
 
         <Route element={<WithUser />}>
-          <Route path="/pomodoro" element={<Pomodoro />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/syllabus" element={<Syllabus />} />
+          <Route
+            path="/pomodoro"
+            element={
+              <Protected>
+                <Pomodoro />
+              </Protected>
+            }
+          />
+          <Route
+            path="/tasks"
+            element={
+              <Protected>
+                <Tasks />
+              </Protected>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <Protected>
+                <Settings />
+              </Protected>
+            }
+          />
+          <Route
+            path="/analytics"
+            element={
+              <Protected>
+                <Analytics />
+              </Protected>
+            }
+          />
+          <Route
+            path="/syllabus"
+            element={
+              <Protected>
+                <Syllabus />
+              </Protected>
+            }
+          />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

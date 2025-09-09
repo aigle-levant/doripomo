@@ -116,7 +116,7 @@
     "dev": "tsx watch ./index.ts",
     "build": "tsc",
     "prod": "node dist/index.js",
-    "seed:syllabi": "tsx ./repositories/data.ts"
+    "seed:syllabi": "tsx ./repositories/syllabus.data.ts"
   },
   "keywords": [],
   "author": "",

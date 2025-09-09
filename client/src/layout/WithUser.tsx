@@ -1,3 +1,13 @@
+import SideNavbar from "../components/common/SideNavbar";
+import { Outlet } from "react-router-dom";
+
 export default function WithUser() {
-  return <p>Works!</p>;
+  return (
+    <div className="flex min-h-screen flex-row">
+      <SideNavbar />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+    </div>
+  );
 }

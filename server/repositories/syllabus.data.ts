@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import connectDb from "../config/db.js";
 import { SyllabusModel } from "../models/syllabus.model.js";
 import syllabi from "../data/syllabus.json" with { type: "json" };

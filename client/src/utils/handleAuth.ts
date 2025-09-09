@@ -20,21 +20,19 @@ export async function firebaseLogin({ email, password }: LoginFormValues) {
   try {
     const data = await signInWithEmailAndPassword(auth, email, password);
     const token = await data.user.getIdToken();
-    const res = await axios.get("https://localhost:4000/api/auth/profile", {
+    const res = await axios.get("http://localhost:4000/api/auth/profile", {
       headers: { Authorization: `Bearer ${token}` },
     });
-    authStore.getState().setUser({
-      email: data.user.email!,
+    const user = {
       uid: data.user.uid,
-      backendUser: res.data,
-    });
-    return {
-      firebaseUser: data.user,
+      email: data.user.email ?? "",
       backendUser: res.data,
     };
+    authStore.getState().setUser(user);
+    return { firebaseUser: data.user, backendUser: res.data };
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : err;
-    console.error(message);
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(message);
   }
 }
 
@@ -44,7 +42,7 @@ export async function firebaseSignup({ email, password }: UserFormValues) {
     const data = await createUserWithEmailAndPassword(auth, email, password);
     const token = await data.user.getIdToken();
     const res = await axios.post(
-      "https://localhost:4000/api/auth/signup",
+      "http://localhost:4000/api/auth/signup",
       {},
       {
         headers: {
@@ -62,8 +60,8 @@ export async function firebaseSignup({ email, password }: UserFormValues) {
       backendUser: res.data,
     };
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : err;
-    console.error(message);
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(message);
   }
 }
 
@@ -74,7 +72,7 @@ export async function firebaseLogout() {
     authStore.getState().setUser(null);
     console.log("Signed out.");
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : err;
-    console.error(message);
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(message);
   }
 }

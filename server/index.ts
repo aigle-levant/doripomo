@@ -8,6 +8,7 @@ import { syllabusRouter } from "./routes/syllabus.routes.js";
 import helmet from "helmet";
 
 // env variables
+const port = process.env.PORT || 4000;
 
 const app = express();
 
@@ -18,8 +19,6 @@ app.use(express.json());
 // routes
 app.use("/api/auth", limiter, authRouter);
 app.use("/api/syllabus", syllabusRouter);
-
-const port = process.env.PORT || 4000;
 
 async function startServer() {
   try {

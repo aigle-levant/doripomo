@@ -1,10 +1,7 @@
 import { NavLink } from "react-router";
-import { useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import ThemeController from "../ui/ThemeController";
 
 export default function Navbar() {
-  // theme change
-  const [theme, setTheme] = useState("light");
   return (
     <nav
       id="navbar"
@@ -33,17 +30,7 @@ export default function Navbar() {
         </NavLink>
       </div>
       <div id="theme-and-auth" className="font-body flex flex-row gap-10 pr-1">
-        <button
-          type="button"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="px-4 py-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-        >
-          {theme === "light" ? (
-            <Moon className="h-6 w-6" />
-          ) : (
-            <Sun className="h-6 w-6" />
-          )}
-        </button>
+        <ThemeController />
         <button
           type="button"
           className="rounded-3xl px-6 py-3 bg-secondary-matcha dark:bg-secondary-forest hover:border-secondary-matcha 
