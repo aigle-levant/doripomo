@@ -1,4 +1,4 @@
-import { type SyllabusCard } from "../../types/syllabusResTypes";
+import { type SyllabusCard } from "../../types/syllabusTypes";
 
 export default function SyllabusCard({ title, icon: Icon }: SyllabusCard) {
   return (

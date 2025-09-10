@@ -1,4 +1,4 @@
-import { type SyllabusResponse } from "../types/syllabusResTypes";
+import { type Syllabus, type SyllabusData } from "../types/syllabusTypes";
 // to handle icons
 import {
   type LucideIcon,
@@ -6,24 +6,31 @@ import {
   CodeXml,
   HelpCircle,
 } from "lucide-react";
-import { authFetch } from "./fetchToken";
+import { AuthFetch } from "./authFetch";
 
 // function to handle axios
 // it returns a giant json of data
 // we only need the title and some other data
-export async function handleSyllabus() {
+export async function handleSyllabus(): Promise<SyllabusData[]> {
   try {
-    const res = await authFetch("http://localhost:4000/api/syllabus");
-    const json: SyllabusResponse = await res.json();
-    const data = json.syllabus;
-    data.map((item, i) => {
-      const type = getType(item.title) || "";
+    // create fetcher bound to syllabus API
+    const fetcher = AuthFetch("http://localhost:4000/api/syllabus");
+
+    // call it (with no options for GET)
+    const res = await fetcher();
+
+    if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+
+    const data: Syllabus[] = await res.json();
+
+    return data.map((item) => {
+      const type = getType(item.title) || "default";
       const icon = getIcon(type);
       return {
-        id: i,
+        id: item._id,
         title: item.title,
         type,
-        icon: icon,
+        icon,
       };
     });
   } catch (err: unknown) {

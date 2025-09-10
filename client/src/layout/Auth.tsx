@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import bgImg from "../assets/auth-bg.jpg";
 
 export default function Auth() {
   return (
@@ -25,7 +26,7 @@ export default function Auth() {
       <div id="auth-layout" className="w-full h-screen">
         <div id="auth-bg-wrapper">
           <img
-            src="../assets/auth-bg.jpg"
+            src={bgImg}
             alt="Photo by Masaaki Komori on Unsplash. White sakura blossoms."
             className="w-full h-screen object-cover opacity-75"
           />

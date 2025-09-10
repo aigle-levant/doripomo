@@ -1,4 +1,4 @@
-import { type SyllabusTable } from "../../types/syllabusResTypes";
+import { type SyllabusTable } from "../../types/syllabusTypes";
 import SyllabusCard from "./SyllabusCard";
 
 export default function SyllabusTable({ data }: SyllabusTable) {

@@ -18,19 +18,25 @@ const SyllabusTaskSchema = new Schema<SyllabusTask>({
 });
 
 const SyllabusChapterSchema = new Schema<SyllabusChapter>({
-  title: {
-    type: String,
-    required: true,
+  title: { type: String, required: true },
+  tasks: {
+    type: [SyllabusTaskSchema],
+    validate: {
+      validator: (v: any[]) =>
+        v.every((task) => task.title && task.title.length > 0),
+      message: "All tasks must have a title",
+    },
   },
-  tasks: [SyllabusTaskSchema],
+  order: { type: Number, default: 0 },
 });
 
-const SyllabusSchema = new Schema<Syllabus>({
-  title: {
-    type: String,
-    required: true,
+const SyllabusSchema = new Schema<Syllabus>(
+  {
+    title: { type: String, required: true },
+    userId: { type: String, required: true },
+    chapters: { type: [SyllabusChapterSchema], default: [] },
   },
-  chapters: [SyllabusChapterSchema],
-});
+  { timestamps: true }
+);
 
 export const SyllabusModel = model<Syllabus>("Syllabus", SyllabusSchema);

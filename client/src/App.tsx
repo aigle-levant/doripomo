@@ -1,8 +1,7 @@
 // pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import AuthLogin from "./pages/AuthLogin";
 import Settings from "./pages/Settings";
 import Analytics from "./pages/Analytics";
 import Tasks from "./pages/Tasks";
@@ -14,8 +13,8 @@ import Default from "./layout/Default";
 import Auth from "./layout/Auth";
 import Pomodoro from "./layout/Pomodoro";
 import WithUser from "./layout/WithUser";
-// protected routes
-import Protected from "./pages/Protected";
+// Protected routes
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 // libraries
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -30,8 +29,7 @@ export default function App() {
         </Route>
 
         <Route element={<Auth />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<AuthLogin />} />
         </Route>
 
         <Route element={<Pomodoro />}>
@@ -42,41 +40,41 @@ export default function App() {
           <Route
             path="/pomodoro"
             element={
-              <Protected>
+              <ProtectedRoute>
                 <Pomodoro />
-              </Protected>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/tasks"
             element={
-              <Protected>
+              <ProtectedRoute>
                 <Tasks />
-              </Protected>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/settings"
             element={
-              <Protected>
+              <ProtectedRoute>
                 <Settings />
-              </Protected>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/analytics"
             element={
-              <Protected>
+              <ProtectedRoute>
                 <Analytics />
-              </Protected>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/syllabus"
             element={
-              <Protected>
+              <ProtectedRoute>
                 <Syllabus />
-              </Protected>
+              </ProtectedRoute>
             }
           />
         </Route>

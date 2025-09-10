@@ -14,6 +14,11 @@ export type BackendUser = {
   email: string;
 };
 
+export type userValue = {
+  email: string;
+  password: string;
+};
+
 export type AuthUser = {
   uid: string;
   email: string;

@@ -1,30 +1,37 @@
-export type SyllabusIconProps = {
-  id: number;
+export type SyllabusTask = {
+  _id: string;
   title: string;
-  desc: string;
+  isCompleted: boolean;
+};
+
+export type SyllabusChapter = {
+  _id: string; // Mongo auto _id
+  title: string;
+  tasks: SyllabusTask[];
+  order: number;
+};
+
+export type Syllabus = {
+  _id: string;
+  title: string;
+  userId: string;
+  chapters: SyllabusChapter[];
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type SyllabusData = {
+  id: string;
+  title: string;
   type: string;
   icon: React.ElementType;
 };
 
-export type SkillCardProps = {
+export type SyllabusCard = {
   title: string;
   icon: React.ElementType;
 };
 
-export type SyllabusSubjectsTableProps = {
-  subjects: SyllabusIconProps[];
-};
-
-export type ChapterRaw = {
-  title: string;
-  tasks: { title: string }[];
-};
-
-export type SyllabusRaw = {
-  title: string;
-  chapters: ChapterRaw[];
-};
-
-export type SyllabusResponse = {
-  syllabi: SyllabusRaw[];
+export type SyllabusTable = {
+  data: SyllabusData[];
 };
