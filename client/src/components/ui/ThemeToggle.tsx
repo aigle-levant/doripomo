@@ -8,13 +8,13 @@ export default function ThemeToggle() {
       <input
         type="checkbox"
         checked={theme === "dark"}
-        onChange={toggleTheme}
+        onClick={toggleTheme}
         value="light"
-        className="theme-controller"
+        className="theme-controller hidden"
       />
 
       <svg
-        className="swap-off h-10 w-10 fill-current"
+        className={`swap-off h-10 w-10 fill-current ${theme !== "light" ? "hidden" : "block"}`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -22,7 +22,7 @@ export default function ThemeToggle() {
       </svg>
 
       <svg
-        className="swap-on h-10 w-10 fill-current"
+        className={`swap-off h-10 w-10 fill-current ${theme !== "dark" ? "hidden" : "block"}`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >

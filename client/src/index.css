@@ -1,29 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
 @import "tailwindcss";
 
-@plugin "daisyui" {
-    themes: light --default, dark --prefersdark;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-pale: #fdf7fa;
-    --color-night: #121212;
-    --color-primary-sakura: #F5BABB;
-    --color-secondary-matcha: #5aa89c;
-    --color-secondary-forest: #2C6D63;
-    --color-accent-rose: #f3dfe0;
+    --color-bg: #fdf7fa;
+    --color-text: #121212;
+    --color-sakura: #F5BABB;
+    --color-matcha: #5aa89c;
+    --color-forest: #2C6D63;
+    --color-rose: #f3dfe0;
 
     --font-heading: 'Noto Sans JP', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
 
 .dark {
-    --color-primary-pale: #fdf7fa;
-    --color-primary-night: #121212;
-    --color-primary-sakura: #F5BABB;
-    --color-primary-matcha: #5aa89c;
-    --color-primary-forest: #2C6D63;
-    --color-primary-rose: #f3dfe0;
-    --font-heading: 'Noto Sans JP', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --color-bg: #121212;
+    --color-text: #fdf7fa;
+    --color-sakura: #F5BABB;
+    --color-matcha: #5aa89c;
+    --color-forest: #2C6D63;
+    --color-rose: #f3dfe0;
 }
