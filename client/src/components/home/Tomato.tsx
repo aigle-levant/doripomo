@@ -19,7 +19,7 @@ function Tomato({ url, onClick }: { url: string; onClick?: () => void }) {
       object={gltf.scene}
       ref={ref}
       scale={0.4}
-      position={[0, -2.3, 0]}
+      position={[1, -2.4, 0]}
       onClick={() => {
         setSpin(!spin);
         if (onClick) onClick();
@@ -36,11 +36,11 @@ export default function Hero3D({
   return (
     <div
       id="3d-component-wrapper"
-      className="relative flex items-center justify-center h-[300px] w-full"
+      className="absolute flex items-center justify-center h-[300px] w-full"
     >
       <div
         id="canvas-wrapper"
-        className="relative z-2 h-full w-full max-w-[400px] mx-auto"
+        className="relative z-2 h-screen w-full lg:max-w-[800px] sm:max-w-[200px] mx-auto"
       >
         <Canvas
           camera={{ position: [0, 0, 4] }} // move camera back

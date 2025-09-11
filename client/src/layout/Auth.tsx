@@ -5,7 +5,7 @@ export default function Auth() {
   return (
     <div
       id="auth-layout-wrapper"
-      className="w-full min-h-screen flex flex-row bg-primary-pale dark:bg-primary-night text-night dark:text-pale"
+      className="w-full min-h-screen flex flex-row bg-bg text-text"
     >
       <div
         id="auth-content-wrapper"
@@ -18,7 +18,7 @@ export default function Auth() {
         </div>
         <div
           id="auth-card-wrapper"
-          className="bg-primary-pale dark:bg-primary-night text-night dark:text-pale rounded-2xl px-10 py-20 w-[400px] min-h-[300px] relative left-10 top-10"
+          className="bg-bg text-text rounded-2xl px-10 py-20 w-[400px] min-h-[300px] relative left-10 top-10"
         >
           <Outlet />
         </div>

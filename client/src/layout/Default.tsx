@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export default function Default() {
   return (
-    <div className="flex min-h-screen flex-col bg-primary-pale dark:bg-primary-night text-night dark:text-pale">
+    <div className="flex min-h-screen flex-col bg-bg text-text">
       <Navbar />
       <main className="flex-1">
         <Outlet />

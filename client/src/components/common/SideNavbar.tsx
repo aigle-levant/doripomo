@@ -33,7 +33,7 @@ export default function SideNavbar() {
   return (
     <div
       id="side-navbar-wrapper"
-      className="fixed left-0 top-0 z-40 w-full md:w-55 h-16 md:h-screen bg-primary-sakura dark:bg-primary-night text-night dark:text-pale flex flex-col justify-between px-5 py-8"
+      className="fixed left-0 top-0 z-40 w-full md:w-55 h-16 md:h-screen bg-bg text-text flex flex-col justify-between px-5 py-8"
       aria-label="Side navigation bar"
     >
       <div id="logo-wrapper" className="mb-10">
@@ -53,12 +53,16 @@ export default function SideNavbar() {
             {data.map(({ page, path, icon: Icon }) => (
               <li
                 key={path}
-                className="flex flex-row gap-5 items-center rounded-2xl hover:bg-primary-sakura hover:text-night px-3 py-2"
+                className="flex flex-row gap-5 items-center rounded-full hover:bg-sakura/40 hover:dark:bg-sakura hover:dark:text-black hover:text-night px-3 py-2"
               >
                 {Icon && <Icon className="h-5 w-5" />}
                 <NavLink
                   to={path}
-                  className={({ isActive }) => (isActive ? "font-bold" : "")}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "hover:bg-sakura/20 hover:font-bold hover:dark:bg-sakura hover:dark:text-black hover:text-night"
+                      : ""
+                  }
                 >
                   {page}
                 </NavLink>

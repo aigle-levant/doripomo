@@ -2,10 +2,7 @@ import { NavLink } from "react-router";
 
 export default function Footer() {
   return (
-    <footer
-      id="footer"
-      className="bg-pale text-night dark:bg-night dark:text-pale py-4 flex flex-col"
-    >
+    <footer id="footer" className="bg-bg text-text py-4 flex flex-col">
       <div
         id="quote-wrapper"
         className="border-b-2 border-night dark:border-pale py-4"
@@ -23,17 +20,17 @@ export default function Footer() {
           </div>
           <div id="socials-container" className="flex flex-col font-body gap-2">
             <NavLink to="https://www.linkedin.com/in/prajanya-subramanian">
-              <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+              <p className="hover:font-bold text-footer-text hover:text-text">
                 LinkedIn
               </p>
             </NavLink>
             <NavLink to="https://github.com/aigle-levant/doripomo">
-              <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+              <p className="hover:font-bold text-footer-text hover:text-text">
                 GitHub
               </p>
             </NavLink>
             <NavLink to="https://x.com/aiglelevant">
-              <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+              <p className="hover:font-bold text-footer-text hover:text-text">
                 X [also known as Twitter]
               </p>
             </NavLink>
@@ -47,12 +44,12 @@ export default function Footer() {
             <p className="font-heading font-bold mb-2 text-2xl">Get started</p>
             <div id="get-started-links" className="font-body flex flex-col">
               <NavLink to="/login">
-                <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+                <p className="hover:font-bold text-footer-text hover:text-text">
                   Login
                 </p>
               </NavLink>
               <NavLink to="/signup">
-                <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+                <p className="hover:font-bold text-footer-text hover:text-text">
                   Sign up
                 </p>
               </NavLink>
@@ -64,22 +61,22 @@ export default function Footer() {
             </p>
             <div id="features-links-container" className="flex flex-col">
               <NavLink to="/pomodoro">
-                <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+                <p className="hover:font-bold text-footer-text hover:text-text">
                   Pomodoro
                 </p>
               </NavLink>
               <NavLink to="/syllabus">
-                <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+                <p className="hover:font-bold text-footer-text hover:text-text">
                   Syllabus
                 </p>
               </NavLink>
               <NavLink to="/about">
-                <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+                <p className="hover:font-bold text-footer-text hover:text-text">
                   About us
                 </p>
               </NavLink>
               <NavLink to="/blog">
-                <p className="text-gray-700 hover:font-bold hover:text-night dark:text-gray-500 hover:dark:text-pale">
+                <p className="hover:font-bold text-footer-text hover:text-text">
                   Blog
                 </p>
               </NavLink>
@@ -87,7 +84,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div id="footer-bottom-content" className="flex flex-row px-10">
+      <div id="footer-bottom-content" className="flexflex-row font-body px-10">
         <div id="license">
           <p className="font-body">
             © {new Date().getFullYear()} Doripomo. All rights reserved.

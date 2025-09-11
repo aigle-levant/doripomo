@@ -44,7 +44,7 @@ export default function Syllabus() {
   //   here comes the skeleton. dun-dun-dun DUN
   if (loading) {
     return (
-      <div id="container" className="flex flex-col gap-5 p-4">
+      <div id="container" className="flex flex-col gap-5 p-4 bg-bg text-text">
         <div className="skeleton h-6 w-1/2 mx-auto"></div>
         <div id="syllabus-content" className="flex gap-6 justify-center">
           <div className="skeleton h-32 w-64"></div>
@@ -82,7 +82,7 @@ export default function Syllabus() {
   return (
     <div
       id="syllabus-wrapper"
-      className="flex flex-col gap-5 bg-primary-pale dark:bg-primary-night text-night dark:text-pale p-6"
+      className="flex flex-col gap-5 bg-bg text-text p-6"
     >
       <h1 className="text-4xl font-heading font-bold text-center">
         Select exam / skill
