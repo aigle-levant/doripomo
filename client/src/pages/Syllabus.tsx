@@ -71,7 +71,7 @@ export default function Syllabus() {
         <h2 className="text-xl font-semibold">No syllabus found</h2>
         <p className="text-sm">Try creating a custom syllabus.</p>
         <button
-          className="mt-4 bg-secondary-matcha btn btn-sm md:btn-md lg:btn-lg"
+          className="mt-4 bg-primary-forest btn btn-sm md:btn-md lg:btn-lg"
           aria-label="Create custom syllabus"
         >
           Create custom
@@ -82,7 +82,7 @@ export default function Syllabus() {
   return (
     <div
       id="syllabus-wrapper"
-      className="flex flex-col gap-5 bg-pale dark:bg-night text-night dark:text-pale p-6"
+      className="flex flex-col gap-5 bg-primary-pale dark:bg-primary-night text-night dark:text-pale p-6"
     >
       <h1 className="text-4xl font-heading font-bold text-center">
         Select exam / skill
@@ -92,7 +92,7 @@ export default function Syllabus() {
       </div>
       <div id="not-interested-wrapper" className="flex flex-row justify-around">
         <p className="text-body text-medium">Don't see your subject?</p>
-        <button className="bg-secondary-matcha btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
+        <button className="bg-primary-forest btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
           Create custom
         </button>
       </div>

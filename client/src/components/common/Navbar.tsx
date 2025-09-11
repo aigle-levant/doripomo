@@ -1,11 +1,11 @@
 import { NavLink } from "react-router";
-import ThemeController from "../ui/ThemeController";
+import ThemeController from "../ui/ThemeToggle";
 
 export default function Navbar() {
   return (
     <nav
       id="navbar"
-      className="text-night dark:text-pale bg-pale dark:bg-night flex flex-row justify-between items-center gap-5 mx-10 rounded-full py-4 px-7 my-6"
+      className="bg-pale text-night dark:bg-night dark:text-pale z-10 flex flex-row justify-between items-center gap-5 mx-10 rounded-full py-4 px-7 my-6"
     >
       <div id="nav-links" className="flex flex-row gap-10 pl-4 font-body">
         <NavLink to="/about">
@@ -33,7 +33,7 @@ export default function Navbar() {
         <ThemeController />
         <button
           type="button"
-          className="rounded-3xl px-6 py-3 bg-secondary-matcha dark:bg-secondary-forest hover:border-secondary-matcha 
+          className="rounded-3xl px-6 py-3 bg-matcha dark:bg-primary-forest hover:border-secondary-matcha 
              hover:brightness-110 hover:shadow-[0_0_25px_rgba(34,197,94,0.8)] 
              transition-all duration-500 ease-in-out"
         >

@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="text-night dark:text-pale bg-pale dark:bg-night py-4 flex flex-col"
+      className="bg-pale text-night dark:bg-night dark:text-pale py-4 flex flex-col"
     >
       <div
         id="quote-wrapper"

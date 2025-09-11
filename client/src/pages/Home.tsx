@@ -1,3 +1,9 @@
+import HeroSection from "../components/home/HeroSection";
+
 export default function Home() {
-  return <p>works!</p>;
+  return (
+    <div id="home-wrapper" className="bg-primary-pale dark:bg-primary-night">
+      <HeroSection />
+    </div>
+  );
 }

@@ -1,3 +1,5 @@
+import { type LucideIcon } from "lucide-react";
+
 export type SyllabusTask = {
   _id: string;
   title: string;
@@ -24,13 +26,10 @@ export type SyllabusData = {
   id: string;
   title: string;
   type: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
 };
 
-export type SyllabusCard = {
-  title: string;
-  icon: React.ElementType;
-};
+export type SyllabusCardProps = Pick<SyllabusData, "title" | "icon">;
 
 export type SyllabusTable = {
   data: SyllabusData[];

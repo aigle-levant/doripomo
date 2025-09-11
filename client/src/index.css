@@ -12,6 +12,18 @@
     --color-secondary-matcha: #5aa89c;
     --color-secondary-forest: #2C6D63;
     --color-accent-rose: #f3dfe0;
+
+    --font-heading: 'Noto Sans JP', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+.dark {
+    --color-primary-pale: #fdf7fa;
+    --color-primary-night: #121212;
+    --color-primary-sakura: #F5BABB;
+    --color-primary-matcha: #5aa89c;
+    --color-primary-forest: #2C6D63;
+    --color-primary-rose: #f3dfe0;
     --font-heading: 'Noto Sans JP', sans-serif;
     --font-body: 'Inter', sans-serif;
 }

@@ -1,24 +1,34 @@
 import Hero3D from "./Tomato";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function HeroSection() {
   // for some fun stuff about pomodoro
   const [showMessage, setShowMessage] = useState(false);
   const keywords = ["efficiently", "smoothly", "productively"];
+  // for the keyword swapping
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % keywords.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [keywords.length]);
   return (
     <div
       id="hero-section-wrapper"
-      className="flex-1 bg-primary-sakura flex-col m-20 rounded-3xl"
+      className="flex-1 bg-primary-sakura/50 flex-col p-8 flex content-center m-5 rounded-4xl"
     >
       <div id="text-wrapper">
         <h1 className="font-heading font-medium">
-          Manage your time <span className="font-bold"></span>
+          Manage your time{" "}
+          <span className="font-bold">{keywords[currentWordIndex]}</span>
         </h1>
       </div>
-      <div id="3d-wrapper">
-        <div className="absolute inset-0">
-          <Hero3D />
-        </div>
+      <div
+        id="3d-wrapper"
+        className="flex flex-wrap justify-center content-center w-[1000px] h-[300px] mt-6"
+      >
+        <Hero3D onTomatoClick={() => setShowMessage(true)} />
       </div>
       <div id="message-wrapper">
         <p className="text-gray-500">Hint: Click the tomato for a fun fact</p>

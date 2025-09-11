@@ -1,4 +1,4 @@
-import ThemeController from "../ui/ThemeController";
+import ThemeController from "../ui/ThemeToggle";
 import { NavLink } from "react-router-dom";
 import { Album, ListTodo, Timer, ChartColumn, Settings } from "lucide-react";
 
@@ -33,7 +33,7 @@ export default function SideNavbar() {
   return (
     <div
       id="side-navbar-wrapper"
-      className="fixed left-0 top-0 z-40 w-full md:w-55 h-16 md:h-screen bg-primary-sakura dark:bg-night text-night dark:text-pale flex flex-col justify-between px-5 py-8"
+      className="fixed left-0 top-0 z-40 w-full md:w-55 h-16 md:h-screen bg-primary-sakura dark:bg-primary-night text-night dark:text-pale flex flex-col justify-between px-5 py-8"
       aria-label="Side navigation bar"
     >
       <div id="logo-wrapper" className="mb-10">
