@@ -1,8 +1,10 @@
 import ThemeController from "../ui/ThemeToggle";
+import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
 import { Album, ListTodo, Timer, ChartColumn, Settings } from "lucide-react";
 
 export default function SideNavbar() {
+  const { logout } = useAuth0();
   const data = [
     {
       page: "Syllabus",
@@ -72,7 +74,12 @@ export default function SideNavbar() {
         </div>
         <div id="misc-wrapper" className="flex flex-row gap-10">
           <ThemeController />
-          <button className="btn btn-soft btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-x">
+          <button
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }
+            className="btn btn-soft btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-x"
+          >
             Logout
           </button>
         </div>

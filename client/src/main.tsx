@@ -13,6 +13,7 @@ createRoot(document.getElementById("root")!).render(
         redirect_uri: window.location.origin,
         audience: "https://doripomo-api.com",
       }}
+      cacheLocation="localstorage"
     >
       <App />
     </Auth0Provider>

@@ -30,11 +30,11 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
           </Route>
-
+          {/* auth layout */}
           <Route element={<Auth />}>
             <Route path="/login" element={<AuthLogin />} />
           </Route>
-
+          {/* only layout accessible by unlogged in users as well */}
           <Route element={<Pomodoro />}>
             <Route path="/timer" element={<Timer />} />
           </Route>

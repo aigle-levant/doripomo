@@ -4,6 +4,9 @@ import { Types } from "mongoose";
 
 export async function getAllSyllabus(userId: string) {
   try {
+    if (!userId) {
+      throw new Error("UserId doesn't exist");
+    }
     return await SyllabusModel.find({ userId }).lean();
   } catch (err) {
     const error = err as Error;

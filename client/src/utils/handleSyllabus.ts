@@ -1,11 +1,6 @@
 import { type Syllabus, type SyllabusData } from "../types/syllabusTypes";
-// to handle icons
-import {
-  type LucideIcon,
-  BookOpenText,
-  CodeXml,
-  HelpCircle,
-} from "lucide-react";
+// handles icons
+import { getIcon, getType } from "./getIcon";
 import { AuthFetch } from "./authFetch";
 
 // function to handle axios
@@ -38,31 +33,4 @@ export async function handleSyllabus(): Promise<SyllabusData[]> {
     console.error("Error fetching syllabus:", message);
     return [];
   }
-}
-
-// icon map
-const icons: Record<string, LucideIcon> = {
-  exam: BookOpenText,
-  programming: CodeXml,
-  default: HelpCircle,
-};
-
-// a function to handle icons and other stuff
-export function getIcon(type: string) {
-  return icons[type] || icons["default"];
-}
-
-// a function to handle the icon i should get from
-// syllabus titles
-function getType(title: string) {
-  const syllabusTitle = title.toLowerCase();
-  if (syllabusTitle.includes("dev")) return "programming";
-  if (
-    syllabusTitle.includes("ssc") ||
-    syllabusTitle.includes("jee") ||
-    syllabusTitle.includes("neet") ||
-    syllabusTitle.includes("cgl") ||
-    syllabusTitle.includes("board")
-  )
-    return "exam";
 }

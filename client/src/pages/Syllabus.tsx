@@ -1,45 +1,9 @@
-import { useState, useEffect } from "react";
-// to handle data coming from handleSyllabus
-import { type SyllabusData } from "../types/syllabusTypes";
-import { handleSyllabus } from "../utils/handleSyllabus";
+// hook to handle syllabus
+import { useSyllabus } from "../hooks/useSyllabus";
 import SyllabusTable from "../components/syllabus/SyllabusTable";
 
 export default function Syllabus() {
-  // loading state for the skeleton
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  // store syllabus and throw it to table
-  //   this is initially an empty arr
-  const [data, setData] = useState<SyllabusData[]>([]);
-  useEffect(() => {
-    let isMounted = true;
-
-    const fetchSyllabus = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const res = await handleSyllabus();
-        if (isMounted) {
-          setData(res ?? []);
-        }
-      } catch (err: unknown) {
-        if (isMounted) {
-          const message = err instanceof Error ? err.message : String(err);
-          setError(message);
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchSyllabus();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const { syllabus: data, error, isLoading: loading } = useSyllabus();
 
   //   here comes the skeleton. dun-dun-dun DUN
   if (loading) {

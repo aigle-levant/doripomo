@@ -1,11 +1,12 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
-import { mongoConnectionString } from "./config.js";
+// import { MongoClient, ServerApiVersion } from "mongodb";
 
-export const connect = mongoConnectionString || "";
-export const client = new MongoClient(connect, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
+// if (connect.length === 0) {
+//   console.log("Mongo connection string is empty!");
+// }
+// export const client = new MongoClient(connect, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   },
+// });
